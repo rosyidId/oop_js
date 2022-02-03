@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameter_constructor_function</title>
+</head>
+<body>
+    <script>
+        /* - Karena JavaScript, class adalah berbentuk function,jadi secara default, function tersebut 
+             Bisa memiliki parameter
+           - Constructor function sama seperti function biasanya, bisa memiliki parameter,harl ini membuat
+             ketika kita membuat object,kita bisa mengirim lansung data lewat parameter di constructor 
+             function tersebut
+        */ 
+        function Person(namaDepan, alamat){
+            this.namaDepan = namaDepan;
+            this.alamat = alamat;
+            this.sayHello = function (nama){
+                console.info(`Hello ${nama}, my name is ${this.namaDepan}, saya dari ${alamat}`)
+            }
+        }
+
+        const rosyid = new Person("rosyid", "lombok");
+        rosyid.sayHello("doni");
+
+        const budi = new Person("luna", "jakarta");
+        budi.sayHello("rony");
+
+        console.log(rosyid);
+        console.log(budi);
+
+
+    </script>
+</body>
+</html>

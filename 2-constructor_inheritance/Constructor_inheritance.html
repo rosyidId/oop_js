@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritance</title>
+</head>
+<body>
+    <script>
+        /*
+            inheritance = pewarisan
+            - Didalam constructor kita biasanya membuat property baik itu berisi value ataupun function
+            - Di dalam constructor, kita bisa memanggil constructor lain, dengan begitu kita bisa mewarisi
+              semua property yang dibuat di constructor lain tersebut
+            - Untuk memanggil constructor lain kita bisa menggunakan NamaConstructor.call(this.parameter)
+        */
+       function Pekerjaan(namaDepan){
+           this.namaDepan = namaDepan;
+           this.sayHello = function (nama) {
+               console.info(`Hello ${nama}, My name is ${this.namaDepan}`);
+           }
+       }
+
+       function Manager(namaDepan, alamat){
+            this.alamat = alamat;
+            Pekerjaan.call(this, namaDepan);
+             
+       }
+
+       const rosyid = new Manager("rosyid", "Sakra");
+       console.info(rosyid);
+    </script>
+</body>
+</html>
